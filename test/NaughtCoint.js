@@ -3,7 +3,6 @@ const { ethers } = require("hardhat");
 
 /**
 
-
 ███╗░░██╗░█████╗░██╗░░░██╗░██████╗░██╗░░██╗████████╗  ░█████╗░░█████╗░██╗███╗░░██╗
 ████╗░██║██╔══██╗██║░░░██║██╔════╝░██║░░██║╚══██╔══╝  ██╔══██╗██╔══██╗██║████╗░██║
 ██╔██╗██║███████║██║░░░██║██║░░██╗░███████║░░░██║░░░  ██║░░╚═╝██║░░██║██║██╔██╗██║
@@ -44,7 +43,7 @@ describe("NaughtCoin", function () {
     let naughtCoin, owner, player, collab;
 
     beforeEach(async function () {
-        [owner, player, collab, burnedAddress] = await ethers.getSigners();
+        [owner, player, collab] = await ethers.getSigners();
 
         const NaughtCoin = await ethers.getContractFactory("contracts/NaughtCoin/NaughtCoin.sol:NaughtCoin");
         naughtCoin = await NaughtCoin.connect(owner).deploy(player.address);
